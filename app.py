@@ -7,7 +7,7 @@ project_df = pd.read_csv("Project_1.csv")
 
 
 st.title("Team Recommender Dashboard")
-
+ 
 # letting user choose a project from the dropdown
 project_name = st.selectbox("Select a project", project_df["project_name"])
 

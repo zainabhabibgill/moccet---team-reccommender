@@ -47,10 +47,22 @@ with tab1:
 
     # visualising using bar chart
     st.subheader("📊 Skill Match Breakdown")
+    colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"]  # different colors for each bar
     fig, ax = plt.subplots()
-    ax.bar(recommended["name"], recommended["match_score"], color="skyblue")
+    bars = ax.bar(recommended["name"], recommended["match_score"], color=colors)
     ax.set_ylabel("Match Score")
     ax.set_title("How Well Each Member Matches the Project Skills")
+    ax.set_ylim(0, max(recommended["match_score"]) + 1)
+
+    # adding labels on bars
+    for bar in bars:
+        height = bar.get_height()
+        ax.annotate(f'{height}',
+                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                    xytext=(0, 3),
+                    textcoords="offset points",
+                    ha='center', va='bottom', fontsize=9)
+
     st.pyplot(fig)
 
 with tab2:

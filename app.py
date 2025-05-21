@@ -24,8 +24,13 @@ st.write(f"**Complexity:** {selected_project['complexity_level']}")
 def score_team_member(skills, required):
     return len(set(skills).intersection(set(required)))
 
-team_df["match_score"] = team_df["skills"].apply(eval).apply(lambda x: score_team_member(x, required_skills))
-recommended = team_df.sort_values(by="match_score", ascending=False).head(4)
+team_df_temp = team_df.copy()
+team_df_temp["match_score"] = team_df_temp["skills"].apply(eval).apply(
+    lambda x: score_team_member(x, required_skills)
+)
+
+recommended = team_df_temp.sort_values(by="match_score", ascending=False).head(4)
+
 
 
 # creating 2 tabs in the streamlit interface

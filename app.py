@@ -53,20 +53,6 @@ with tab1:
     ax.set_title("How Well Each Member Matches the Project Skills")
     st.pyplot(fig)
 
-    # visualising using pie chart
-    st.subheader("🧩 Skill Coverage")
-    covered_skills = set()
-    for skills in recommended["skills"].apply(eval):
-        covered_skills.update(skills)
-
-    matched = len(set(required_skills).intersection(covered_skills))
-    missing = len(set(required_skills)) - matched
-
-    fig2, ax2 = plt.subplots()
-    ax2.pie([matched, missing], labels=["Covered", "Missing"], autopct="%1.1f%%", startangle=90, colors=["green", "lightgray"])
-    ax2.axis("equal")
-    st.pyplot(fig2)
-
 with tab2:
     # providing an explanation of how my reccommendation engine works
     st.subheader("🔍 How the Recommendation Engine Works")

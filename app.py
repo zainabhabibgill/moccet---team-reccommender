@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 team_df = pd.read_csv("Team_1.csv")
 project_df = pd.read_csv("Project_1.csv")
@@ -33,8 +34,6 @@ team_df_temp["match_score"] = team_df_temp["skills"].apply(eval).apply(
 
 recommended = team_df_temp.sort_values(by="match_score", ascending=False).head(4)
 
-
-
 # creating 2 tabs in the streamlit interface
 tab1, tab2 = st.tabs(["👥 Recommended Team", "📖 How It Works"])
 
@@ -44,8 +43,29 @@ with tab1:
     
     avg_exp = recommended["experience_years"].mean()
     predicted_time = max(10, selected_project["deadline_days"] - int(avg_exp * 1.5))
-
     st.metric("⏱️ Predicted Completion Time", f"{predicted_time} days")
+
+    # visualising using bar chart
+    st.subheader("📊 Skill Match Breakdown")
+    fig, ax = plt.subplots()
+    ax.bar(recommended["name"], recommended["match_score"], color="skyblue")
+    ax.set_ylabel("Match Score")
+    ax.set_title("How Well Each Member Matches the Project Skills")
+    st.pyplot(fig)
+
+    # visualising using pie chart
+    st.subheader("🧩 Skill Coverage")
+    covered_skills = set()
+    for skills in recommended["skills"].apply(eval):
+        covered_skills.update(skills)
+
+    matched = len(set(required_skills).intersection(covered_skills))
+    missing = len(set(required_skills)) - matched
+
+    fig2, ax2 = plt.subplots()
+    ax2.pie([matched, missing], labels=["Covered", "Missing"], autopct="%1.1f%%", startangle=90, colors=["green", "lightgray"])
+    ax2.axis("equal")
+    st.pyplot(fig2)
 
 with tab2:
     # providing an explanation of how my reccommendation engine works

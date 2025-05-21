@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 team_df = pd.read_csv("Team_1.csv")
-project_df = pd.read_csv("Project_1.csv")
+project_df = project_df[project_df["project_name"] != "AI Chatbot"]
 
 
 st.title("Team Recommender Dashboard")

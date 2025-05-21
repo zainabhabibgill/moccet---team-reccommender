@@ -28,17 +28,33 @@ team_df["match_score"] = team_df["skills"].apply(eval).apply(lambda x: score_tea
 recommended = team_df.sort_values(by="match_score", ascending=False).head(4)
 
 
-st.subheader("👥 Recommended Team")
-st.dataframe(recommended[["name", "skills", "experience_years", "availability_hours", "match_score"]])
+# creating 2 tabs in the streamlit interface
+tab1, tab2 = st.tabs(["👥 Recommended Team", "📖 How It Works"])
 
+with tab1:
+    st.subheader("👥 Recommended Team")
+    st.dataframe(recommended[["name", "skills", "experience_years", "availability_hours", "match_score"]])
+    
+    avg_exp = recommended["experience_years"].mean()
+    predicted_time = max(10, selected_project["deadline_days"] - int(avg_exp * 1.5))
 
-avg_exp = recommended["experience_years"].mean()
-predicted_time = max(10, selected_project["deadline_days"] - int(avg_exp * 1.5))
-st.metric("⏱️ Predicted Completion Time", f"{predicted_time} days")
+    st.metric("⏱️ Predicted Completion Time", f"{predicted_time} days")
 
-st.subheader("📖 How It Works")
-st.markdown("""
-- Team members are matched based on overlapping skills.
-- Higher experience helps reduce project completion time.
-- Forecast is a simple function of team experience vs project deadline.
-""")
+with tab2:
+    # providing an explanation of how my reccommendation engine works
+    st.subheader("🔍 How the Recommendation Engine Works")
+    st.markdown("""
+    This app recommends teams based on how well their skills match the project's needs.
+
+    **Here's how it works:**
+
+    - ✅ **Skill Matching**: Each team member is scored based on how many of the required skills they have.
+    - 🔢 **Match Score**: We use a simple count of overlapping skills to rank members.
+    - 👥 **Top Picks**: The top 4 scorers are recommended for the team.
+    - ⏱ **Time Forecast**: The average experience across the recommended team is used to adjust the project duration estimate.
+
+    This is a lightweight model designed for clarity and speed. In future iterations, we could incorporate:
+    - Real project history data
+    - LSTM-based sequence models for forecasting
+    - More complex optimization around availability and team balance
+    """)

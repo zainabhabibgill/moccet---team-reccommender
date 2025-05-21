@@ -1,0 +1,21 @@
+member_id,name,skills,experience_years,availability_hours
+TM1,Member_1,"['SQL', 'Python', 'UI/UX', 'Leadership', 'Data Viz']",2,10
+TM2,Member_2,"['Frontend', 'SQL', 'Data Viz', 'Python', 'Backend']",1,20
+TM3,Member_3,"['Frontend', 'Python', 'NLP']",6,40
+TM4,Member_4,"['Backend', 'UI/UX', 'Python']",7,20
+TM5,Member_5,"['Data Viz', 'Project Management', 'UI/UX', 'SQL', 'Leadership']",7,30
+TM6,Member_6,"['SQL', 'Data Viz', 'Leadership']",3,30
+TM7,Member_7,"['UI/UX', 'Python', 'Backend', 'Leadership', 'Frontend']",4,10
+TM8,Member_8,"['UI/UX', 'Project Management', 'NLP', 'Frontend', 'Python']",1,20
+TM9,Member_9,"['SQL', 'NLP', 'Leadership', 'Frontend']",3,40
+TM10,Member_10,"['Project Management', 'ML', 'Leadership', 'Frontend', 'SQL']",6,30
+TM11,Member_11,"['SQL', 'ML', 'NLP', 'Leadership', 'Backend']",4,30
+TM12,Member_12,"['Frontend', 'NLP', 'Project Management', 'Data Viz', 'Python']",2,10
+TM13,Member_13,"['Data Viz', 'UI/UX', 'SQL', 'Backend']",5,30
+TM14,Member_14,"['Backend', 'Data Viz', 'Leadership']",2,30
+TM15,Member_15,"['NLP', 'Frontend', 'UI/UX']",6,40
+TM16,Member_16,"['Data Viz', 'Project Management', 'NLP', 'SQL', 'UI/UX']",4,10
+TM17,Member_17,"['SQL', 'ML', 'Frontend']",7,40
+TM18,Member_18,"['SQL', 'Data Viz', 'Frontend', 'UI/UX', 'NLP']",5,30
+TM19,Member_19,"['Python', 'SQL', 'UI/UX', 'Data Viz', 'Project Management']",3,10
+TM20,Member_20,"['Data Viz', 'ML', 'Backend', 'Python']",6,30

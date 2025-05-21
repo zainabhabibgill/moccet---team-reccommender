@@ -1,0 +1,6 @@
+project_id,project_name,required_skills,complexity_level,deadline_days
+PRJ1,AI Chatbot,"['Frontend', 'ML', 'SQL', 'Data Viz']",High,33
+PRJ2,Data Dashboard,"['Frontend', 'NLP', 'ML', 'Backend']",Low,14
+PRJ3,E-Commerce App,"['Leadership', 'Project Management', 'Backend', 'Python']",Low,37
+PRJ4,Team Analytics Tool,"['UI/UX', 'NLP', 'Python', 'SQL']",High,19
+PRJ5,Customer Insights Platform,"['SQL', 'Backend', 'Leadership', 'Data Viz']",High,22
